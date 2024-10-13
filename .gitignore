@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+.project
+project.properties
+secure.properties
+.DS_Store
