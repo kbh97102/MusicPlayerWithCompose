@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,6 +11,7 @@ android {
     namespace = "com.arakene.musicplayer"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.arakene.musicplayer"
         minSdk = 26
@@ -16,6 +20,13 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
+        val prop = Properties().apply {
+            load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+        }
+
+        buildConfigField("String", "youtube_key", prop.getProperty("youtube_key"))
     }
 
     buildTypes {
