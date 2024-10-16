@@ -12,10 +12,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 import com.arakene.musicplayer.BuildConfig
@@ -107,14 +105,18 @@ fun TestView(
                 scope.launch(Dispatchers.IO + ceh) {
                     val request = util.youtube.search()
                         .list(listOf("snippet"))
-                    val response = request.setForMine(true)
+                    val response = request
+//                        .setForMine(true)
                         .setKey(BuildConfig.youtube_key)
                         .setQ("노돌리")
                         .setType(listOf("video"))
                         .execute()
 
                     Log.d(">>>>", "RESPONSE")
-                    Log.d(">>>>", response.toString())
+
+                    val youtubeURL = "https://www.youtube.com/watch?v=${response.items.first().id}"
+
+                    Log.d(">>>>", "url $youtubeURL")
                 }
             }
         ) {
