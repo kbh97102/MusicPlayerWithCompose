@@ -20,6 +20,8 @@ loggingInterceptor = "4.12.0"
 credential = "1.3.0"
 googleid = "1.1.1"
 oauth = "1.36.0"
+media3 = "1.4.1"
+media3Ui = "1.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -48,6 +50,11 @@ credentails = {group = "androidx.credentials", name = "credentials", version.ref
 credentails-playservice = {group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credential"}
 googleid = {group = "com.google.android.libraries.identity.googleid", name = "googleid",  version.ref = "googleid"}
 oauth = {group = "com.google.oauth-client", name = "google-oauth-client-jetty", version.ref = "oauth"}
+exoplayer-core = {group = "androidx.media3", name = "media3-exoplayer", version.ref = "media3"}
+androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "media3Ui" }
+#exoplayer-dash = {group = "androidx.media3", name = "media3-exoplayer-dash", version.ref = "media3"}
+#exoplayer-ui = {group = "androidx.media3", name = "media3-exoplayer-ui", version.ref = "media3"}
+
 
 
 [plugins]
