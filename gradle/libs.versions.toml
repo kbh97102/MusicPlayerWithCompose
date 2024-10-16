@@ -14,8 +14,12 @@ youtubeClient = "2.7.0"
 googleClient = "2.7.0"
 googleHttp = "1.45.0"
 googleGson = "2.7.0"
-
-
+playServiceAuth = "21.2.0"
+retrofit = "2.11.0"
+loggingInterceptor = "4.12.0"
+credential = "1.3.0"
+googleid = "1.1.1"
+oauth = "1.36.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,10 +37,17 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 youtube = {group = "com.google.apis", name = "google-api-services-youtube", version.ref = "youtube" }
-youtube-client = {group = "com.google.api-client", name = "google-api-client", version.ref = "youtubeClient" }
 google-http = {group = "com.google.http-client", name = "google-http-client-android", version.ref = "googleHttp"}
 google-gson = {group = "com.google.api-client", name = "google-api-client-gson", version.ref = "googleGson"}
 google-client = {group = "com.google.api-client", name = "google-api-client-android", version.ref = "googleClient"}
+play-auth = {group = "com.google.android.gms", name = "play-services-auth" , version.ref = "playServiceAuth"}
+retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
+retrofit-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
+logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
+credentails = {group = "androidx.credentials", name = "credentials", version.ref = "credential"}
+credentails-playservice = {group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credential"}
+googleid = {group = "com.google.android.libraries.identity.googleid", name = "googleid",  version.ref = "googleid"}
+oauth = {group = "com.google.oauth-client", name = "google-oauth-client-jetty", version.ref = "oauth"}
 
 
 [plugins]

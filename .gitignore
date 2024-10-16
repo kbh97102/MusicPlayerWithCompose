@@ -17,3 +17,5 @@ local.properties
 project.properties
 secure.properties
 .DS_Store
+/*.json
+res/raw/*.json

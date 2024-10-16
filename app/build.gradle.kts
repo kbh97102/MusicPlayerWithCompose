@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.Packaging
+import com.android.build.gradle.internal.packaging.defaultExcludes
 import java.io.FileInputStream
 import java.util.Properties
 
@@ -39,15 +41,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
         buildConfig = true
+    }
+    packaging {
+        resources.excludes += "META-INF/*"
     }
 }
 
@@ -69,8 +74,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.youtube)
-    implementation(libs.youtube.client)
+
     implementation(libs.google.client)
     implementation(libs.google.gson)
     implementation(libs.google.http)
+    implementation(libs.play.auth)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.logging.interceptor)
+    implementation(libs.credentails)
+    implementation(libs.credentails.playservice)
+    implementation(libs.googleid)
+    implementation(libs.oauth)
 }
