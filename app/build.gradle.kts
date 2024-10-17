@@ -16,6 +16,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders["redirectSchemeName"] = "https"
+        manifestPlaceholders["redirectHostName"] = "https://arakene.musicplayer.com/android-redirect"
+
     }
 
     buildTypes {
@@ -56,4 +60,12 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.gson)
+    implementation(files("libs/spotify-app-remote-release-0.8.0.aar"))
+    implementation(libs.spotify.auth)
+    implementation(libs.broswer)
+
+//    fileTree(baseDir = "libs"){
+//        include("spotify-app-remote-release-0.8.0.aar")
+//    }
 }
