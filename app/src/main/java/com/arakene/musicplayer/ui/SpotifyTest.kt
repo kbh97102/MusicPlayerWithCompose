@@ -10,15 +10,22 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.platform.LocalContext
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import com.arakene.musicplayer.dataStore
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationResponse
+import kotlinx.coroutines.launch
 
 
 @Composable
 fun SpotifyTest() {
 
     val context = LocalContext.current
+
+    val scope = rememberCoroutineScope()
 
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -28,6 +35,12 @@ fun SpotifyTest() {
             AuthorizationResponse.Type.TOKEN -> {
                 Log.d(">>>>", "TOKEN $response")
                 response.accessToken
+
+                scope.launch {
+                    context.dataStore.edit { settings ->
+                        settings[stringPreferencesKey("token")] = response.accessToken
+                    }
+                }
             }
 
             AuthorizationResponse.Type.ERROR -> {
@@ -63,9 +76,22 @@ fun SpotifyTest() {
 
         Button(
             onClick = {
-                SpotifyUtil.search()
+                SpotifyUtil.playMusic()
             }
-        ) { }
+        ) {
+            Text("Play Music")
+        }
+
+        Button(
+            onClick = {
+                scope.launch {
+                    SpotifyUtil.listSearchTest()
+                }
+            }
+        ) {
+            Text("TEST Search")
+
+        }
     }
 }
 

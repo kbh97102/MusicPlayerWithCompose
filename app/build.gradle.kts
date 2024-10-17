@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -67,8 +68,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.logging.interceptor)
+    implementation(libs.datasotre)
 
-//    fileTree(baseDir = "libs"){
-//        include("spotify-app-remote-release-0.8.0.aar")
-//    }
 }

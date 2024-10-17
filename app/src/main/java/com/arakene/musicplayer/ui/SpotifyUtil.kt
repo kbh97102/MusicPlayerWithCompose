@@ -5,15 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import androidx.compose.runtime.Stable
+import com.arakene.musicplayer.network.TestClient
 import com.spotify.android.appremote.api.ConnectionParams
 import com.spotify.android.appremote.api.Connector
 import com.spotify.android.appremote.api.SpotifyAppRemote
-import com.spotify.sdk.android.auth.AccountsQueryParameters.CLIENT_ID
-import com.spotify.sdk.android.auth.AccountsQueryParameters.REDIRECT_URI
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationRequest
 import com.spotify.sdk.android.auth.AuthorizationResponse
-import com.spotify.sdk.android.auth.LoginActivity.REQUEST_CODE
 
 
 @Stable
@@ -47,7 +45,7 @@ object SpotifyUtil{
         })
     }
 
-    fun search() {
+    fun playMusic() {
         // Play a playlist
         spotifyAppRemote?.playerApi?.play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL")
     }
@@ -66,8 +64,10 @@ object SpotifyUtil{
 
     }
 
-    fun listSearchTest() {
-
+    suspend fun listSearchTest() {
+        TestClient.client.search(query = "이세계아이돌", type = "playlist").also {
+            Log.d(">>>>", "TEST ${it.body()}")
+        }
     }
 
 }

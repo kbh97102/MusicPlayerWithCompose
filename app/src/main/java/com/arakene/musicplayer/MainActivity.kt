@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.arakene.musicplayer.network.TestClient
 import com.arakene.musicplayer.ui.SpotifyTest
 import com.arakene.musicplayer.ui.SpotifyUtil
 import com.arakene.musicplayer.ui.theme.MusicPlayerTheme
@@ -22,6 +23,9 @@ import com.arakene.musicplayer.ui.theme.MusicPlayerTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        TestClient.init(this.dataStore)
+
         setContent {
             SpotifyTest()
         }
