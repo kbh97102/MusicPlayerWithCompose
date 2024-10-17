@@ -64,6 +64,9 @@ dependencies {
     implementation(files("libs/spotify-app-remote-release-0.8.0.aar"))
     implementation(libs.spotify.auth)
     implementation(libs.broswer)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.logging.interceptor)
 
 //    fileTree(baseDir = "libs"){
 //        include("spotify-app-remote-release-0.8.0.aar")
