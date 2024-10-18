@@ -15,7 +15,7 @@ gson = "2.11.0"
 brower = "1.8.0"
 spotify-auth = "2.1.2"
 datastore = "1.1.1"
-coil = "3.0.0-rc01"
+glide = "1.0.0-beta01"
 
 
 
@@ -41,7 +41,7 @@ retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "
 retrofit-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
 logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
 datasotre = {group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore"}
-coil = {group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil"}
+glide = {group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
 
 
 [plugins]

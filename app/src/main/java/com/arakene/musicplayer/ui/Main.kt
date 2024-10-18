@@ -3,12 +3,11 @@ package com.arakene.musicplayer.ui
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,7 +17,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.datastore.preferences.core.edit
@@ -26,11 +24,14 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import com.arakene.musicplayer.actions.MainAction
 import com.arakene.musicplayer.dataStore
 import com.arakene.musicplayer.ui.viewModel.MainViewModel
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationResponse
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun Main(
     viewModel: MainViewModel = MainViewModel()
@@ -106,9 +107,13 @@ fun Main(
                     val target = items[it]
                     Column(
                         modifier = Modifier
-                            .size(128.dp)
-                            .background(color = Color.Yellow, shape = RoundedCornerShape(8.dp))
+                            .width(128.dp)
                     ) {
+                        GlideImage(
+                            model = target.images.firstOrNull()?.url,
+                            contentDescription = null,
+                            modifier = Modifier.size(128.dp)
+                        )
 
 
                         Text("TITLE? ${target.name}")

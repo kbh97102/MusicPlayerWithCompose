@@ -69,6 +69,6 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.logging.interceptor)
     implementation(libs.datasotre)
-    implementation(libs.coil)
+    implementation(libs.glide)
 
 }
