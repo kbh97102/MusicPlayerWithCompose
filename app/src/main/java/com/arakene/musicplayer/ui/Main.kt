@@ -110,6 +110,7 @@ fun Main(
                             .background(color = Color.Yellow, shape = RoundedCornerShape(8.dp))
                     ) {
 
+
                         Text("TITLE? ${target.name}")
 
                         Text("Owner? ${target.owner.displayName}")
