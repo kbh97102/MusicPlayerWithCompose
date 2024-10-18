@@ -120,7 +120,6 @@ fun Main(
 
                         Text("Owner? ${target.owner.displayName}")
                     }
-
                 }
 
 
