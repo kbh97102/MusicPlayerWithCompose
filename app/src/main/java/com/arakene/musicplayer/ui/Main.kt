@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -102,6 +103,14 @@ fun Main(
 
         LaunchedEffect(data) {
             Log.d(">>>>", "Data size ${data?.items?.size}")
+        }
+
+        Button(
+            onClick = {
+                navigator.navigate(NavigationRoute.MyPlaylist)
+            }
+        ) {
+            Text("My Playlist")
         }
 
         if (!data?.items.isNullOrEmpty()) {

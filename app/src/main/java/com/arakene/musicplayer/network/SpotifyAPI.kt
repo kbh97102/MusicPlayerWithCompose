@@ -1,5 +1,6 @@
 package com.arakene.musicplayer.network
 
+import com.arakene.musicplayer.network.response.GetUserPlaylistDTO
 import com.arakene.musicplayer.network.response.PlaylistDto
 import com.arakene.musicplayer.network.response.SearchResponse
 import retrofit2.Response
@@ -27,5 +28,10 @@ interface SpotifyAPI {
         @Path("playlist_id") playlistId: String,
         @Query("market") market: String = "KR",
     ): Response<PlaylistDto>
+
+    @GET("/v1/me/playlists")
+    suspend fun getMyPlaylist(
+
+    ): Response<GetUserPlaylistDTO>
 
 }

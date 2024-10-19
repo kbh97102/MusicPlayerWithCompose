@@ -14,6 +14,7 @@ import com.arakene.musicplayer.network.TestClient
 import com.arakene.musicplayer.ui.Main
 import com.arakene.musicplayer.ui.NavigationRoute
 import com.arakene.musicplayer.ui.PlayListDetailView
+import com.arakene.musicplayer.ui.UserPlayListView
 import com.arakene.musicplayer.ui.viewModel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -50,6 +51,10 @@ class MainActivity : ComponentActivity() {
                         )
                     }
 
+
+                    composable<NavigationRoute.MyPlaylist> {
+                        UserPlayListView()
+                    }
                 }
 
             }

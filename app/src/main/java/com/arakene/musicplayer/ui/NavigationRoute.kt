@@ -18,5 +18,8 @@ sealed class NavigationRoute {
 
     @Serializable
     data object Playlist
+
+    @Serializable
+    data object MyPlaylist
 }
 
