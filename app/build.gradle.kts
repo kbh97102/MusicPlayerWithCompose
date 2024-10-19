@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -70,5 +71,6 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.datasotre)
     implementation(libs.glide)
-
+    implementation(libs.navigation)
+    implementation(libs.serialization)
 }

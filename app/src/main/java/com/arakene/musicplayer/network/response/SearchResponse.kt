@@ -3,7 +3,9 @@ package com.arakene.musicplayer.network.response
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Parcelize
 data class SearchResponse(
     @SerializedName("tracks") val tracks: Tracks,
@@ -15,6 +17,7 @@ data class SearchResponse(
     @SerializedName("audiobooks") val audiobooks: Audiobooks
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Tracks(
     @SerializedName("href") val href: String,
@@ -26,6 +29,7 @@ data class Tracks(
     @SerializedName("items") val items: List<Track>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Track(
     @SerializedName("album") val album: Album,
@@ -38,7 +42,6 @@ data class Track(
     @SerializedName("external_urls") val externalUrls: ExternalUrls,
     @SerializedName("id") val id: String,
     @SerializedName("is_playable") val isPlayable: Boolean,
-    @SerializedName("linked_from") val linkedFrom: String?,
     @SerializedName("restrictions") val restrictions: Restrictions,
     @SerializedName("name") val name: String,
     @SerializedName("popularity") val popularity: Int,
@@ -49,6 +52,7 @@ data class Track(
     @SerializedName("is_local") val isLocal: Boolean
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Album(
     @SerializedName("album_type") val albumType: String,
@@ -67,6 +71,7 @@ data class Album(
     @SerializedName("artists") val artists: List<Artist>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Artist(
     @SerializedName("external_urls") val externalUrls: ExternalUrls,
@@ -81,17 +86,20 @@ data class Artist(
     @SerializedName("uri") val uri: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class ExternalUrls(
     @SerializedName("spotify") val spotify: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Followers(
     @SerializedName("href") val href: String?,
     @SerializedName("total") val total: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Image(
     @SerializedName("url") val url: String,
@@ -99,11 +107,13 @@ data class Image(
     @SerializedName("width") val width: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Restrictions(
     @SerializedName("reason") val reason: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Albums(
     @SerializedName("href") val href: String,
@@ -115,6 +125,7 @@ data class Albums(
     @SerializedName("items") val items: List<Album>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Playlists(
     @SerializedName("href") val href: String,
@@ -126,6 +137,7 @@ data class Playlists(
     @SerializedName("items") val items: List<Playlist>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Playlist(
     @SerializedName("collaborative") val collaborative: Boolean,
@@ -140,9 +152,10 @@ data class Playlist(
     @SerializedName("snapshot_id") val snapshotId: String,
     @SerializedName("tracks") val tracks: TracksInfo,
     @SerializedName("type") val type: String,
-    @SerializedName("uri") val uri: String
+    @SerializedName("uri") var uri: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Owner(
     @SerializedName("external_urls") val externalUrls: ExternalUrls,
@@ -154,12 +167,14 @@ data class Owner(
     @SerializedName("display_name") val displayName: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class TracksInfo(
     @SerializedName("href") val href: String,
     @SerializedName("total") val total: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Shows(
     @SerializedName("href") val href: String,
@@ -171,6 +186,7 @@ data class Shows(
     @SerializedName("items") val items: List<Show>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Show(
     @SerializedName("available_markets") val availableMarkets: List<String>,
@@ -192,12 +208,14 @@ data class Show(
     @SerializedName("total_episodes") val totalEpisodes: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Copyright(
     @SerializedName("text") val text: String,
     @SerializedName("type") val type: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Episodes(
     @SerializedName("href") val href: String,
@@ -209,6 +227,7 @@ data class Episodes(
     @SerializedName("items") val items: List<Episode>
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Episode(
     @SerializedName("audio_preview_url") val audioPreviewUrl: String?,
@@ -233,23 +252,26 @@ data class Episode(
     @SerializedName("restrictions") val restrictions: Restrictions
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class ResumePoint(
     @SerializedName("fully_played") val fullyPlayed: Boolean,
     @SerializedName("resume_position_ms") val resumePositionMs: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Audiobooks(
-    @SerializedName("href") val href: String,
-    @SerializedName("limit") val limit: Int,
-    @SerializedName("next") val next: String?,
-    @SerializedName("offset") val offset: Int,
-    @SerializedName("previous") val previous: String?,
-    @SerializedName("total") val total: Int,
-    @SerializedName("items") val items: List<Audiobook>
+    @SerializedName("href") val href: String = "",
+    @SerializedName("limit") val limit: Int = -1,
+    @SerializedName("next") val next: String? = null,
+    @SerializedName("offset") val offset: Int = -1,
+    @SerializedName("previous") val previous: String? = null,
+    @SerializedName("total") val total: Int = -1,
+    @SerializedName("items") val items: List<Audiobook> = emptyList()
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Audiobook(
     @SerializedName("authors") val authors: List<Author>,
@@ -273,16 +295,19 @@ data class Audiobook(
     @SerializedName("total_chapters") val totalChapters: Int
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Author(
     @SerializedName("name") val name: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class Narrator(
     @SerializedName("name") val name: String
 ) : Parcelable
 
+@Serializable
 @Parcelize
 data class ExternalIds(
     @SerializedName("isrc") val isrc: String,

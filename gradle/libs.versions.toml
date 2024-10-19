@@ -16,6 +16,8 @@ brower = "1.8.0"
 spotify-auth = "2.1.2"
 datastore = "1.1.1"
 glide = "1.0.0-beta01"
+navigation = "2.8.3"
+serialization = "1.2.0"
 
 
 
@@ -42,6 +44,8 @@ retrofit-gson = {group = "com.squareup.retrofit2", name = "converter-gson", vers
 logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
 datasotre = {group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore"}
 glide = {group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
+navigation = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
+serialization = {group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization"}
 
 
 [plugins]
@@ -49,4 +53,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin"  }
+kotlin-serialization = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 
