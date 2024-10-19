@@ -29,6 +29,16 @@ class PlaylistViewModel : ViewModel() {
                     }
                 }
             }
+
+            is PlaylistAction.AddToMyPlayList -> {
+
+            }
+            is PlaylistAction.CreatePlaylist -> {
+
+            }
+            PlaylistAction.GetPlaylists -> {
+
+            }
         }
     }
 }
