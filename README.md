@@ -2,7 +2,7 @@
 
 
 # 목적
-ExoPlayer와 youtube api를 이용해서 나만의 플레이어를 만들어보자
+MVI 써보자
 
 # 기능
 음악 검색
