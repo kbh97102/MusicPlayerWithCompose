@@ -1,5 +1,6 @@
 package com.arakene.musicplayer.ui.viewModel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arakene.musicplayer.actions.PlaylistAction
@@ -23,6 +24,7 @@ class PlaylistViewModel : ViewModel() {
             is PlaylistAction.GetData -> {
                 viewModelScope.launch {
                     TestClient.client.getPlaylistDetail(action.id).body()?.let {
+                        Log.e(">>>>", "BODY? ${it.tracks.items.size}")
                         _state.value = state.copy(data = it)
                     }
                 }

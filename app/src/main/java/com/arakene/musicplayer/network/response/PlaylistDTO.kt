@@ -94,7 +94,6 @@ data class TrackDto(
     @SerializedName("href") val href: String = "",
     @SerializedName("id") val id: String = "",
     @SerializedName("is_playable") val isPlayable: Boolean = false,
-    @SerializedName("linked_from") val linkedFrom: String? = null,
     @SerializedName("restrictions") val restrictions: RestrictionsDto? = null,
     @SerializedName("name") val name: String = "",
     @SerializedName("popularity") val popularity: Int = 0,

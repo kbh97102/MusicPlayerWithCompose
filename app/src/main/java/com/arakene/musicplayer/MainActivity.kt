@@ -13,7 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.arakene.musicplayer.network.TestClient
 import com.arakene.musicplayer.ui.Main
 import com.arakene.musicplayer.ui.NavigationRoute
-import com.arakene.musicplayer.ui.PlayListDetail
+import com.arakene.musicplayer.ui.PlayListDetailView
 import com.arakene.musicplayer.ui.viewModel.MainViewModel
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                     testViewModel.mainState.value.mainData
                     composable<NavigationRoute.Playlist> {
                         uiState.selectedPlayList?.let {
-                            PlayListDetail(it)
+                            PlayListDetailView(it)
                         }
 
                     }

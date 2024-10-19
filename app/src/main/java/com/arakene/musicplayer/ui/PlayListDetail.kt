@@ -1,8 +1,13 @@
 package com.arakene.musicplayer.ui
 
+import android.util.Log
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -26,10 +31,10 @@ import com.bumptech.glide.integration.compose.GlideImage
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun PlayListDetail(
+fun PlayListDetailView(
     data: Playlist,
     modifier: Modifier = Modifier,
-    viewModel: PlaylistViewModel = PlaylistViewModel()
+    viewModel: PlaylistViewModel = remember { PlaylistViewModel() }
 ) {
 
     val playlistData by viewModel.state.collectAsState()
@@ -42,8 +47,14 @@ fun PlayListDetail(
         viewModel.handleAction(PlaylistAction.GetData(data.id))
     }
 
+    LaunchedEffect(playlist) {
+
+        Log.e(">>>>", "LIST? ${playlist.items.size}")
+    }
+
     Column(
         modifier = Modifier
+            .fillMaxSize()
             .then(modifier)
             .background(color = Color.Black),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -54,16 +65,20 @@ fun PlayListDetail(
             modifier = Modifier.size(128.dp)
         )
 
-        Text(data.name)
+        Text(data.name, color = Color.White)
 
-        Text(data.description)
+        Text(data.description, color = Color.White)
 
         Row {
-            Text("Button Row")
+            Text("Button Row", color = Color.White)
         }
 
         // 음악 리스트
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.Start,
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
             items(playlist.items) {
                 MusicItem(it.track)
             }
@@ -75,16 +90,17 @@ fun PlayListDetail(
 
 @Composable
 fun MusicItem(
-    data: TrackDto
+    data: TrackDto,
+    modifier: Modifier = Modifier
 ) {
-    Row {
+    Row(modifier = modifier.background(color = Color.DarkGray)) {
 
         //이름
-        Text(text = data.name)
+        Text(text = data.name, color = Color.White, modifier = Modifier.padding(end = 10.dp))
 
         // 가수?
         data.artists.forEach {
-            Text(text = it.name)
+            Text(text = it.name, color = Color.White)
         }
 
     }
