@@ -1,5 +1,11 @@
 package com.arakene.musicplayer.ui
 
+import android.os.Parcelable
+import androidx.annotation.Keep
+import androidx.navigation.Navigator
+import com.arakene.musicplayer.network.response.Playlist
+import com.arakene.musicplayer.ui.ui_parameter.PlaylistParameter
+import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
 
 
@@ -10,16 +16,24 @@ import kotlinx.serialization.Serializable
  *
  * UiState를 통해 데이터 전달하도록 함
  */
+@Keep
+@Parcelize
 @Serializable
-sealed class NavigationRoute {
-    @Serializable
-    data object Main
+sealed interface NavigationRoute : Parcelable {
 
-
+    @Keep
+    @Parcelize
     @Serializable
-    data object Playlist
+    data object Main: NavigationRoute
 
+    @Keep
+    @Parcelize
     @Serializable
-    data object MyPlaylist
+    data class PlaylistRoute(val playlist: PlaylistParameter): NavigationRoute
+
+    @Keep
+    @Parcelize
+    @Serializable
+    data object MyPlaylist: NavigationRoute
 }
 

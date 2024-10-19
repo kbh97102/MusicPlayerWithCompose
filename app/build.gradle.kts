@@ -4,11 +4,12 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
 android {
     namespace = "com.arakene.musicplayer"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.arakene.musicplayer"
@@ -20,7 +21,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders["redirectSchemeName"] = "https"
-        manifestPlaceholders["redirectHostName"] = "https://arakene.musicplayer.com/android-redirect"
+        manifestPlaceholders["redirectHostName"] =
+            "https://arakene.musicplayer.com/android-redirect"
 
     }
 
@@ -33,6 +35,13 @@ android {
             )
         }
     }
+    packaging {
+        resources {
+            excludes += "META-INF/*"
+            excludes += "mozilla/*"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -73,4 +82,5 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.navigation)
     implementation(libs.serialization)
+//    implementation(libs.navigation.safeargs)
 }

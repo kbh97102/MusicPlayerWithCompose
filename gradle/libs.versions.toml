@@ -6,8 +6,8 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.6"
-activityCompose = "1.9.2"
-composeBom = "2024.09.03"
+activityCompose = "1.9.3"
+composeBom = "2024.10.00"
 retrofit = "2.11.0"
 loggingInterceptor = "4.12.0"
 
@@ -16,8 +16,8 @@ brower = "1.8.0"
 spotify-auth = "2.1.2"
 datastore = "1.1.1"
 glide = "1.0.0-beta01"
-navigation = "2.8.3"
-serialization = "1.2.0"
+navigation = "2.9.0-alpha01"
+serialization = "1.6.3"
 
 
 
@@ -36,22 +36,23 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-gson = {group = "com.google.code.gson", name = "gson", version.ref = "gson"}
-broswer = {group = "androidx.browser", name = "browser", version.ref = "brower"}
-spotify-auth = {group = "com.spotify.android", name = "auth", version.ref = "spotify-auth"}
-retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit"}
-retrofit-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit"}
-logging-interceptor = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor"}
-datasotre = {group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore"}
-glide = {group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
-navigation = {group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation"}
-serialization = {group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization"}
-
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+broswer = { group = "androidx.browser", name = "browser", version.ref = "brower" }
+spotify-auth = { group = "com.spotify.android", name = "auth", version.ref = "spotify-auth" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptor" }
+datasotre = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore" }
+glide = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide" }
+navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+serialization = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+navigation-safeargs = { group = "androidx.navigation", name = "navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin"  }
-kotlin-serialization = {id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
 

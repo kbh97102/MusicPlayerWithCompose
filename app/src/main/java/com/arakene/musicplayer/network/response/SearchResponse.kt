@@ -1,6 +1,7 @@
 package com.arakene.musicplayer.network.response
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
@@ -137,6 +138,7 @@ data class Playlists(
     @SerializedName("items") val items: List<Playlist>
 ) : Parcelable
 
+@Keep
 @Serializable
 @Parcelize
 data class Playlist(

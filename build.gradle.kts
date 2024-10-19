@@ -5,4 +5,13 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.kotlin.serialization) apply false
+    alias(libs.plugins.navigation.safeargs.kotlin) apply false
+}
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath(libs.navigation.safeargs)
+    }
 }

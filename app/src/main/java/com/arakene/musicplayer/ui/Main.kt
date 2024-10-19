@@ -39,6 +39,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun Main(
+    moveTest: (PlaylistParameter) -> Unit,
     viewModel: MainViewModel = MainViewModel(),
     navigator: NavHostController = NavigatorCompositionLocal.current
 ) {
@@ -128,11 +129,12 @@ fun Main(
                                 val test = PlaylistParameter(
                                     id = "target.id",
                                     name = "target.name",
-                                    description = "target.description",
-                                    images = listOf()
+                                    description = "target.description"
                                 )
-                                viewModel.testMethod(target)
-                                navigator.navigate(NavigationRoute.Playlist)
+//                                viewModel.testMethod(target)
+//                                navigator.navigate(NavigationRoute.PlaylistRoute(target))
+
+                                moveTest(test)
                             }
                             .width(128.dp)
                     ) {
