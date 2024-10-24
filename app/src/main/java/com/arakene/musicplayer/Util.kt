@@ -21,14 +21,9 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 val NavigatorCompositionLocal = compositionLocalOf<NavHostController> { error("NO Navigator") }
 
 
-val PlaylistType = object : NavType<PlaylistParameter>(isNullableAllowed = true) {
+val PlaylistType = object : NavType<PlaylistParameter>(isNullableAllowed = false) {
     override fun get(bundle: Bundle, key: String): PlaylistParameter? {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            bundle.getParcelable(key, PlaylistParameter::class.java)
-        } else {
-            @Suppress("DEPRECATION")
-            bundle.getParcelable(key)
-        }
+        return bundle.getString(key)?.let { Json.decodeFromString(it) }
     }
 
     override fun parseValue(value: String): PlaylistParameter {
@@ -36,7 +31,11 @@ val PlaylistType = object : NavType<PlaylistParameter>(isNullableAllowed = true)
     }
 
     override fun put(bundle: Bundle, key: String, value: PlaylistParameter) {
-        bundle.putParcelable(key, value)
+        bundle.putString(key, Json.encodeToString(PlaylistParameter.serializer(), value))
+    }
+
+    override fun serializeAsValue(value: PlaylistParameter): String {
+        return Json.encodeToString(PlaylistParameter.serializer(), value)
     }
 }
 
