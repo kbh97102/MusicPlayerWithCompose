@@ -10,7 +10,6 @@ data class MainState(
     var mainData: List<SearchResponse>,
     var pullToRefresh: Boolean = false,
     var scrollToTop: Boolean = false,
-    var selectedPlayList: Playlist? = null
 ) : UIState {
     constructor() : this(isLoading = false, mainData = emptyList())
 }

@@ -33,6 +33,7 @@ import androidx.compose.ui.window.Dialog
 import com.arakene.musicplayer.actions.PlaylistAction
 import com.arakene.musicplayer.network.response.Playlist
 import com.arakene.musicplayer.network.response.TrackDto
+import com.arakene.musicplayer.ui.ui_parameter.PlaylistParameter
 import com.arakene.musicplayer.ui.viewModel.PlaylistViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
@@ -40,7 +41,7 @@ import com.bumptech.glide.integration.compose.GlideImage
 @OptIn(ExperimentalGlideComposeApi::class, ExperimentalFoundationApi::class)
 @Composable
 fun PlayListDetailView(
-    data: Playlist,
+    data: PlaylistParameter,
     modifier: Modifier = Modifier,
     viewModel: PlaylistViewModel = remember { PlaylistViewModel() }
 ) {

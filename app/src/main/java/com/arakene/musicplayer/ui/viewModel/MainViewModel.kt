@@ -20,11 +20,6 @@ class MainViewModel : ViewModel() {
         reduce(_mainState.value, action)
     }
 
-    fun testMethod(playlist: Playlist) {
-        _mainState.value = _mainState.value.copy(selectedPlayList = playlist)
-    }
-
-
     private fun reduce(state: MainState, action: MainAction) {
         when (action) {
             MainAction.PullToRefresh -> {

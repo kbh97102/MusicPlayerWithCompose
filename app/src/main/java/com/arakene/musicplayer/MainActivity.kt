@@ -34,8 +34,6 @@ class MainActivity : ComponentActivity() {
                 MainViewModel()
             }
 
-            val uiState by testViewModel.mainState.collectAsState()
-
             CompositionLocalProvider(NavigatorCompositionLocal provides controller) {
                 NavHost(
                     navController = controller,
@@ -45,11 +43,7 @@ class MainActivity : ComponentActivity() {
                         typeMap = mapOf(typeOf<PlaylistParameter>() to PlaylistType)
                     ) {
                         val data = it.toRoute<PlaylistParameter>()
-
-                        uiState.selectedPlayList?.let {
-                            PlayListDetailView(it)
-                        }
-
+                        PlayListDetailView(data)
                     }
 
                     composable<NavigationRoute.Main> {

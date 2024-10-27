@@ -124,17 +124,13 @@ fun Main(
                     Column(
                         modifier = Modifier
                             .clickable {
-//                                target.uri = target.uri.convertToBase64()
-
-                                val test = PlaylistParameter(
-                                    id = "target.id",
-                                    name = "target.name",
-                                    description = "target.description"
+                                val parameter = PlaylistParameter(
+                                    id = target.id,
+                                    name = target.name,
+                                    description = target.description,
+                                    images = target.images
                                 )
-//                                viewModel.testMethod(target)
-//                                navigator.navigate(NavigationRoute.PlaylistRoute(target))
-
-                                moveTest(test)
+                                moveTest(parameter)
                             }
                             .width(128.dp)
                     ) {
